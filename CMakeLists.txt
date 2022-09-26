@@ -17,19 +17,22 @@ if(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_BINARY_DIR} AND NOT WIN3
 	"(either below this directory or elsewhere), and then re-run CMake from there.")
 endif(${CMAKE_CURRENT_SOURCE_DIR} STREQUAL ${CMAKE_CURRENT_BINARY_DIR} AND NOT WIN32)
 
-project(ExampleGame LANGUAGES CXX)
+project(GameExample LANGUAGES CXX)
+
+set(CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/CMake" ${CMAKE_MODULE_PATH})
+
+set(CMAKE_CXX_STANDARD 17)
+
+file(GLOB_RECURSE SOURCES Main.cpp Assets/Components/*.cpp Packages/*.cpp)
+
+add_executable(GameExample ${SOURCES} ${HEADERS})
 
 # Library
-add_subdirectory(Library/KapEngine)
+include(Library/library.cmake)
 
-file(GLOB_RECURSE SOURCES Main.cpp Assets/Components/*.cpp)
-
-add_executable(ExampleGame ${SOURCES} ${HEADERS})
-
-target_link_libraries(ExampleGame KapEngine)
-
+# Includes
 include_directories(.)
 include_directories(Assets/Components)
 
-# KapEngine include
-include(Library/KapEngine/CMake/engine_include.cmake)
+# Packages
+include(Packages/packages.cmake)

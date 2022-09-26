@@ -15,12 +15,11 @@ namespace MyGame {
 
     class ComponentTest : public KapEngine::Component {
         public:
-            ComponentTest(std::shared_ptr<KapEngine::GameObject> &go, int threadId);
+            ComponentTest(std::shared_ptr<KapEngine::GameObject> &go);
             ~ComponentTest();
 
             void onStart() override;
             void onUpdate() override {
-                std::cout << "Thread fixedUpdate: " << std::to_string(_thread) << std::endl;
             }
 
         protected:
