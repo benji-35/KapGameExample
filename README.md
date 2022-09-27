@@ -1,7 +1,7 @@
 # Example Game
 
 ## How do I build and run this?
-See the [Example Game build instructions](Documentation/BuildInstructions.md)
+You can use build.sh at root of this project
 
 ## Authors
 * **Chaika9** - [Chaika9](https://github.com/Chaika9) (Build system)
