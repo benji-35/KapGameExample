@@ -1,13 +1,7 @@
 #ifndef COMPONENTTEST_HPP_
 #define COMPONENTTEST_HPP_
 
-#include "Component.hpp"
-#include "GameObject.hpp"
-
-namespace KapEngine {
-    class Component;
-    class GameObject;
-}
+#include "KapEngine.hpp"
 
 #include <iostream>
 
