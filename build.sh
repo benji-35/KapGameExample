@@ -1,3 +1,4 @@
+#!/bin/sh
 #!/bin/bash
 # ██╗  ██╗ █████╗ ██████╗ ███████╗███╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗
 # ██║ ██╔╝██╔══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝ ██║████╗  ██║██╔════╝
@@ -7,6 +8,8 @@
 # ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
 #
 # by Benjamin Delvert
+
+GAME_NAME="GameExample"
 
 function title() {
 
@@ -34,27 +37,35 @@ function update() {
 }
 
 function loadNinja() {
+    setGameName
     rm -rf build/
     git submodule update --init --recursive
     mkdir build
     cd build
-    cmake -G Ninja ..
+    cmake -G Ninja .. -DEXE_NAME=$GAME_NAME
     ninja
     cd ../
     clear
-    ./build/GameExample
+    ./build/$GAME_NAME
 }
 
 function loadMake() {
+    setGameName
     rm -rf build/
     git submodule update --init --recursive
     mkdir build
     cd build
-    cmake ..
+    cmake .. -DEXE_NAME=$GAME_NAME
     make
     cd ../
     clear
-    ./build/GameExample
+    ./build/$GAME_NAME
+}
+
+function setGameName() {
+    read -p "Enter the name of your game : " GAME_NAME
+    echo -e "Game name set to $GAME_NAME"
+    echo -e ""
 }
 
 function main() {

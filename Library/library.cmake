@@ -1,6 +1,6 @@
 # KapEngine
 add_subdirectory(Library/KapEngine)
-target_link_libraries(GameExample KapEngine)
+target_link_libraries(${EXE_NAME} KapEngine)
 include(Library/KapEngine/CMake/engine_include.cmake)
 
 ##   Ajout d'un nouveau module

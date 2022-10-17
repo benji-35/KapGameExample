@@ -1,11 +1,20 @@
+/*
+
+    ██╗  ██╗ █████╗ ██████╗ ███████╗███╗   ██╗ ██████╗ ██╗███╗   ██╗███████╗
+    ██║ ██╔╝██╔══██╗██╔══██╗██╔════╝████╗  ██║██╔════╝ ██║████╗  ██║██╔════╝
+    █████╔╝ ███████║██████╔╝█████╗  ██╔██╗ ██║██║  ███╗██║██╔██╗ ██║█████╗
+    ██╔═██╗ ██╔══██║██╔═══╝ ██╔══╝  ██║╚██╗██║██║   ██║██║██║╚██╗██║██╔══╝
+    ██║  ██╗██║  ██║██║     ███████╗██║ ╚████║╚██████╔╝██║██║ ╚████║███████╗
+    ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝     ╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚══════╝
+
+    Here is your main for your game
+
+*/
+
 #include "KapEngine.hpp"
-#include "GameObject.hpp"
-#include "ComponentTest.hpp"
-#include "Factory.hpp"
-#include "Entity.hpp"
 
 int main(int ac, char **av) {
-    KapEngine::KapEngine engine(false);
+    KapEngine::KEngine engine(false);
 
     try {
         auto &scene = engine.getSceneManager()->getCurrentScene();
