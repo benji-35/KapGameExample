@@ -1,5 +1,4 @@
 #include "ComponentTest.hpp"
-#include "Debug.hpp"
 
 MyGame::ComponentTest::ComponentTest(std::shared_ptr<KapEngine::GameObject> &go) : KapEngine::Component(go, "TestComp") {
 

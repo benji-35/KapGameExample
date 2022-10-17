@@ -3,8 +3,6 @@
 
 #include "KapEngine.hpp"
 
-#include <iostream>
-
 namespace MyGame {
 
     class ComponentTest : public KapEngine::Component {
