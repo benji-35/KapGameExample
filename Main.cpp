@@ -15,12 +15,7 @@
 
 int main(int ac, char **av) {
     KapEngine::KEngine engine(false);
-
-    try {
-        auto &scene = engine.getSceneManager()->getCurrentScene();
-
-        auto obj = scene.createGameObject("Object");
-    } catch(...) {}
+    engine.setScreenSize({1920, 1080});
 
     engine.run();
 }
