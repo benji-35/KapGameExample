@@ -29,12 +29,25 @@ set(CMAKE_CXX_STANDARD 17)
 # use valgrind programm
 option(VALGRIND "Use -g on project compile" OFF)
 
+option(GAME_THREAD "define if game uses KapEngine threaded" OFF)
+option(GAME_BETA "define if game uses KapEngine beta" OFF)
+option(GAME_DEBUG "define if KapEngine is in debug mode" OFF)
+
+
+# RayLib version
+set(raylib_VERSION 4.0.0)
+find_package(raylib REQUIRED)
+message(STATUS "RayLib version: ${raylib_VERSION}")
+
+
 file(GLOB_RECURSE SOURCES Main.cpp Assets/Components/*.cpp Packages/*.cpp)
 
 add_executable(${EXE_NAME} ${SOURCES} ${HEADERS})
 
 # Library
 include(Library/library.cmake)
+
+target_link_libraries(${EXE_NAME} raylib)
 
 # Includes
 include_directories(.)
