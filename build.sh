@@ -29,37 +29,24 @@ function title() {
 }
 
 function update() {
-    git rm -f --cached Library/KapEngine/
-    rm -rf Library/KapEngine/
-    rm -rf .git/modules/Library/KapEngine/
-    git submodule add git@github.com:benji-35/KapEngine.git Library/KapEngine
+    git submodule update --init --recursive
+    git pull --recurse-submodules
+    git submodule update --remote
     clear
 }
 
 function loadNinja() {
-    setGameName
-    rm -rf build/
     git submodule update --init --recursive
-    mkdir build
-    cd build
-    cmake -G Ninja .. -DEXE_NAME=$GAME_NAME
-    ninja
-    cd ../
-    clear
-    ./build/$GAME_NAME
+    setGameName
+    cmake -B build -G Ninja -DEXE_NAME=$GAME_NAME
+    cmake --build build/
 }
 
 function loadMake() {
-    setGameName
-    rm -rf build/
     git submodule update --init --recursive
-    mkdir build
-    cd build
-    cmake .. -DEXE_NAME=$GAME_NAME
-    make
-    cd ../
-    clear
-    ./build/$GAME_NAME
+    setGameName
+    cmake -B build -DEXE_NAME=$GAME_NAME
+    cmake --build build/
 }
 
 function setGameName() {

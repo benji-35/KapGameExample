@@ -12,3 +12,9 @@
 	path = Library/KapEngine
 	url = git@github.com:benji-35/KapEngine.git
 
+[submodule "Packages/KapRaylib"]
+	path = Packages/KapRaylib
+	url = git@github.com:benji-35/KapRaylib.git
+[submodule "Packages/KapUI"]
+	path = Packages/KapUI
+	url = git@github.com:benji-35/KapUi.git
